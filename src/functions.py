@@ -1,8 +1,8 @@
 """Tasks for checking knowledge about functions."""
-from typing import List
+from typing import List, Callable
 
 
-def task_00():
+def task_00(fn: Callable[[int], str], value: int) -> str:
     """Checks if student can accept functions as arguments.
 
     Modify this function signature, so it can accept a function and an integer.
@@ -10,6 +10,8 @@ def task_00():
     a string and add following string to the result: '_END'. Return the whole
     string from this function.
     """
+
+    return fn(value) + "_END"
 
 
 def task_01(nums: List[int]):
@@ -21,3 +23,10 @@ def task_01(nums: List[int]):
     remove all values greater or equal to 5.
     """
 
+    def absolute(x):
+        return abs(x)
+
+    nums = map(absolute, nums)
+    nums = filter(lambda x: x < 5, nums)
+
+    return nums
