@@ -10,7 +10,6 @@ def task_00(fn: Callable[[int], str], value: int) -> str:
     a string and add following string to the result: '_END'. Return the whole
     string from this function.
     """
-
     return fn(value) + "_END"
 
 
@@ -22,7 +21,6 @@ def task_01(nums: List[int]):
     `filter` functions to apply `absolute` on all elements of `nums` and
     remove all values greater or equal to 5.
     """
-
     def absolute(x):
         return abs(x)
 

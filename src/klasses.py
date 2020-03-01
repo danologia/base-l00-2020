@@ -1,6 +1,7 @@
 """Tasks for checking knowledge about classes."""
 from abc import ABC, abstractmethod
 
+
 class BaseProcessor(ABC):
     """Checks if student can use ABC package.
 
@@ -39,11 +40,17 @@ class MultiplyingProcessor(BaseProcessor):
         self._a = a
 
     def process(self, item: int) -> int:
+        """Return item multiplied by `a`.
+
+        Multiplies item by internal parameter `a` and keeps count
+        of number of times it was called
+        """
         self._num_processed = self._num_processed + 1
 
         return item * self._a
 
     def num_processed(self) -> int:
+        """Return how many times process was called."""
         if self._num_processed == 0:
             print("NO ITEMS PROCESSED")
 
