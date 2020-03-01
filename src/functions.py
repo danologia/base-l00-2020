@@ -29,4 +29,4 @@ def task_01(nums: List[int]):
     nums = map(absolute, nums)
     nums = filter(lambda x: x < 5, nums)
 
-    return nums
+    return list(nums)

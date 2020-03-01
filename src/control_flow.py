@@ -10,6 +10,9 @@ def task_00(x: int) -> Optional[int]:
     Otherwise do nothing.
     """
 
+    if x >= 2:
+        return x * 3 + 4
+
 def task_01(x: List[int]) -> Union[str, int]:
     """Checks if student can use IF-ELIF-ELSE statement.
 
@@ -19,3 +22,9 @@ def task_01(x: List[int]) -> Union[str, int]:
     Otherwise return the length of the list.
     """
 
+    if len(x) == 0:
+        return "EMPTY"
+    elif len(x) > 0 and x[0] > 2:
+        return x[0] * 3
+    else:
+        return len(x)
