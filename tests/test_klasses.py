@@ -9,13 +9,13 @@ from src import klasses as kls
 class TestKlasses(ut.TestCase):
 
     def test_BaseProcessor_should_be_abstract(self):
-        self.assertTrue(isinstance(kls.BaseProcessor, abc.ABC))
+        self.assertTrue(issubclass(kls.BaseProcessor, abc.ABC))
 
     def test_process_method_should_be_abstract(self):
         self.assertTrue('process' in kls.BaseProcessor.__abstractmethods__)
 
     def test_MultiplyingProcessor_inherits_from_BaseProcessor(self):
-        self.assertTrue(isinstance(kls.MultiplyingProcessor, kls.BaseProcessor))
+        self.assertTrue(issubclass(kls.MultiplyingProcessor, kls.BaseProcessor))
 
     @patch('builtins.print')
     def test_MultiplyingProcessor_prints_str_when_no_items_processed(self, mocked_print):

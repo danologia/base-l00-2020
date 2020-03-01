@@ -1,7 +1,7 @@
 """Tasks for checking knowledge about classes."""
+from abc import ABC, abstractmethod
 
-
-class BaseProcessor:
+class BaseProcessor(ABC):
     """Checks if student can use ABC package.
 
     Using the ABC package mark this class and its `process` function
@@ -12,6 +12,7 @@ class BaseProcessor:
         """Inits BaseClass."""
         self._num_processed = 0
 
+    @abstractmethod
     def process(self, item: int) -> int:
         """Maps each given integer value to a new integer value."""
         pass
@@ -21,7 +22,7 @@ class BaseProcessor:
         return self._num_processed
 
 
-class MultiplyingProcessor:
+class MultiplyingProcessor(BaseProcessor):
     """Checks if the student can use inheritance.
 
     Modify this class to inherit from the `BaseProcessor` class.
@@ -34,5 +35,16 @@ class MultiplyingProcessor:
 
     def __init__(self, a):
         """Inits MultiplyingProcessor."""
+        super().__init__()
         self._a = a
 
+    def process(self, item: int) -> int:
+        self._num_processed = self._num_processed + 1
+
+        return item * self._a
+
+    def num_processed(self) -> int:
+        if self._num_processed == 0:
+            print("NO ITEMS PROCESSED")
+
+        return super().num_processed()
